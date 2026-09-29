@@ -1,0 +1,151 @@
+:root {
+  --color-bg: #ffffff;
+  --color-bg-accent: #f4f5f7;
+  --color-text: #1a1a1a;
+  --color-accent: #0b3d91;
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.5;
+}
+
+h1, h2, h3, p, ul, ol {
+  margin: 0 0 1rem 0;
+}
+
+.section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--color-bg-accent);
+}
+
+.section__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-bg);
+  background: var(--color-text);
+}
+
+.button--primary {
+  background: var(--color-accent);
+}
+
+.hero {
+  background: var(--color-bg-accent);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+}
+
+.list {
+  padding-left: 1.25rem;
+}
+
+.list li {
+  margin-bottom: 0.5rem;
+}
+
+.steps {
+  counter-reset: steps-counter;
+  list-style: none;
+  padding-left: 0;
+}
+
+.steps__item {
+  counter-increment: steps-counter;
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.steps__item::before {
+  content: counter(steps-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq__item {
+  margin-bottom: 1.5rem;
+}
+
+.faq__item h3 {
+  margin-bottom: 0.35rem;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  padding: 0.6rem;
+  border: 1px solid #c7ccd4;
+  border-radius: 4px;
+  font: inherit;
+  width: 100%;
+}
+
+.field-error {
+  color: #c0392b;
+  font-size: 0.9rem;
+  min-height: 1.1rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.form-status {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--color-bg-accent);
+  border-radius: 4px;
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 2rem 0;
+  }
+
+  .section__inner {
+    padding: 0 1rem;
+  }
+}

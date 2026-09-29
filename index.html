@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Аудит юнит-экономики для продавца Wildberries</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <section id="hero" class="section hero">
+    <div class="section__inner">
+      <h1>Узнайте, где ваш магазин на Wildberries теряет деньги на акциях</h1>
+      <p class="hero__subtitle">Аудит юнит-экономики: реальная маржа по товарам, разбор участия в акциях, письменный отчёт с цифрами.</p>
+      <a href="#form" class="button button--primary">Оставить заявку</a>
+    </div>
+  </section>
+
+  <section id="problem" class="section">
+    <div class="section__inner">
+      <h2>Почему магазин теряет деньги на акциях</h2>
+      <ul class="list">
+        <li>Часть расходов не видна в момент принятия решения об акции: комиссия площадки, логистика до покупателя и обратная логистика по невыкупам.</li>
+        <li>Хранение, эквайринг и налог редко учитываются при расчёте цены со скидкой, из-за чего часть позиций фактически продаётся в минус.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="scope" class="section">
+    <div class="section__inner">
+      <h2>Что входит в аудит</h2>
+      <ul class="list">
+        <li>Реальная маржа по каждому товару с учётом всех расходов.</li>
+        <li>Разбор участия в прошедших и текущих акциях.</li>
+        <li>Список позиций, которые торгуют в минус.</li>
+        <li>Письменный отчёт: где теряются деньги и что изменить.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="process" class="section">
+    <div class="section__inner">
+      <h2>Как проходит работа</h2>
+      <ol class="steps">
+        <li class="steps__item">Вы даёте доступ к своим цифрам по магазину.</li>
+        <li class="steps__item">Я считаю реальную маржу и разбираю участие в акциях.</li>
+        <li class="steps__item">Вы получаете письменный отчёт. Без созвонов, в переписке.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <div class="section__inner">
+      <h2>Цена</h2>
+      <p>10 000–30 000 ₽ в зависимости от размера ассортимента.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="section__inner">
+      <h2>Обо мне</h2>
+      <p>Продаю на Wildberries несколько лет и веду собственный магазин. Этот аудит — прямое применение того же расчёта, которым я пользуюсь для своих товаров: разбор реальной маржи и участия в акциях, без общих советов.</p>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="section__inner">
+      <h2>Вопросы и ответы</h2>
+      <div class="faq__item">
+        <h3>Какие данные нужны для аудита?</h3>
+        <p>Выгрузка по товарам и продажам из личного кабинета: закупочные цены, цены продажи, участие в акциях за выбранный период.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Сколько занимает работа по времени?</h3>
+        <p>Обычно несколько дней с момента получения доступа к данным — срок зависит от размера ассортимента.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Что с конфиденциальностью данных?</h3>
+        <p>Данные используются только для расчёта и не передаются третьим лицам.</p>
+      </div>
+      <div class="faq__item">
+        <h3>В каком виде я получу результат?</h3>
+        <p>Письменный отчёт: реальная маржа по товарам, список убыточных позиций, разбор участия в акциях и рекомендации.</p>
+      </div>
+      <div class="faq__item">
+        <h3>Нужен ли созвон?</h3>
+        <p>Нет, вся работа идёт в переписке — доступ к данным и обмен документами.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="form" class="section">
+    <div class="section__inner">
+      <h2>Оставить заявку</h2>
+      <form id="lead-form" novalidate>
+        <div class="field">
+          <label for="name">Имя</label>
+          <input type="text" name="name" id="name">
+          <span class="field-error" data-error-for="name"></span>
+        </div>
+        <div class="field">
+          <label for="contact">Телефон или Telegram</label>
+          <input type="text" name="contact" id="contact">
+          <span class="field-error" data-error-for="contact"></span>
+        </div>
+        <div class="field">
+          <label for="comment">Комментарий (необязательно)</label>
+          <textarea name="comment" id="comment"></textarea>
+        </div>
+        <button type="submit" class="button button--primary">Отправить заявку</button>
+      </form>
+      <pre id="form-status" class="form-status" hidden></pre>
+    </div>
+  </section>
+</body>
+</html>
