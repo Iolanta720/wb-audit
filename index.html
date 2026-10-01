@@ -11,7 +11,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b3d91'/%3E%3Ctext x='16' y='23' font-size='20' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3E%E2%82%BD%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -19,18 +19,24 @@
   <section id="hero" class="section hero">
     <div class="section__inner">
       <div class="hero__content">
-        <h1>Узнайте, где ваш магазин на Wildberries теряет деньги на акциях</h1>
+        <h1>Узнайте, где ваш магазин на Wildberries <span class="highlight">теряет деньги</span></h1>
         <p class="hero__subtitle">Аудит юнит-экономики: реальная маржа по товарам, разбор участия в акциях, письменный отчёт с цифрами.</p>
         <a href="#form" class="button button--primary">Оставить заявку</a>
       </div>
-      <svg class="hero__illustration" viewBox="0 0 140 140" role="img" aria-label="Растущие столбики с монетами — иллюстрация роста прибыли">
-        <rect x="20" y="90" width="22" height="35" rx="3" fill="#0b3d91" opacity="0.35"/>
-        <rect x="59" y="65" width="22" height="60" rx="3" fill="#0b3d91" opacity="0.6"/>
-        <rect x="98" y="35" width="22" height="90" rx="3" fill="#0b3d91" opacity="0.9"/>
-        <circle cx="31" cy="80" r="11" fill="#0b3d91" opacity="0.35"/>
-        <circle cx="70" cy="55" r="11" fill="#0b3d91" opacity="0.6"/>
-        <circle cx="109" cy="25" r="11" fill="#0b3d91" opacity="0.9"/>
-        <text x="109" y="29" font-size="11" font-family="Arial" font-weight="700" text-anchor="middle" fill="#faf8f3">₽</text>
+      <svg class="hero__illustration" viewBox="0 0 300 240" role="img" aria-label="Утка в горке золотых монет — иллюстрация к теме прибыли">
+        <ellipse cx="90" cy="205" rx="55" ry="16" fill="#d99a2b"/>
+        <ellipse cx="190" cy="210" rx="60" ry="17" fill="#e8ad3d"/>
+        <ellipse cx="140" cy="195" rx="50" ry="15" fill="#d99a2b"/>
+        <ellipse cx="150" cy="150" rx="78" ry="58" fill="#ffd43b"/>
+        <ellipse cx="195" cy="150" rx="30" ry="18" fill="#f2c233"/>
+        <circle cx="100" cy="100" r="42" fill="#ffd43b"/>
+        <ellipse cx="78" cy="98" rx="16" ry="10" fill="#f6922b"/>
+        <circle cx="112" cy="90" r="5" fill="#2a2420"/>
+        <ellipse cx="70" cy="180" rx="46" ry="14" fill="#e8ad3d"/>
+        <ellipse cx="170" cy="192" rx="42" ry="13" fill="#f2c233"/>
+        <ellipse cx="120" cy="188" rx="34" ry="11" fill="#e8ad3d"/>
+        <path d="M242 70 l6 14 14 6 -14 6 -6 14 -6 -14 -14 -6 14 -6 z" fill="#c1542c" opacity="0.85"/>
+        <path d="M40 60 l4 9 9 4 -9 4 -4 9 -4 -9 -9 -4 9 -4 z" fill="#c1542c" opacity="0.6"/>
       </svg>
     </div>
   </section>
@@ -53,6 +59,7 @@
         <li>Разбор участия в прошедших и текущих акциях.</li>
         <li>Список позиций, которые торгуют в минус.</li>
         <li>Письменный отчёт: где теряются деньги и что изменить.</li>
+        <li>Бонус: готовый промпт для нейросети, чтобы вы могли повторить похожий разбор самостоятельно на новых данных.</li>
       </ul>
     </div>
   </section>
