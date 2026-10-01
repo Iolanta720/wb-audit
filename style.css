@@ -118,6 +118,20 @@ h3 {
   background: var(--color-page-bg);
   border-radius: 14px;
   padding: 1.25rem;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-illo {
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  margin-top: auto;
+  padding-top: 1rem;
+  align-self: center;
 }
 
 .mini-card p {
@@ -148,6 +162,11 @@ h3 {
   background: var(--color-page-bg);
   border-radius: 14px;
   padding: 1.25rem;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
 }
 
 .step-card p {
