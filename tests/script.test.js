@@ -2,6 +2,14 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const { validateForm, buildMailtoEmail, buildFallbackMessage, buildFormPayload, buildSuccessMessage, buildSendErrorMessage } = require('../script.js');
 
+test('validateForm: без согласия заявка не проходит, а согласие не мешает прохождению', () => {
+  const without = validateForm({ name: 'Иоланта', contact: '@iolanta_wb', comment: '', consent: false });
+  assert.equal(without.valid, false);
+  assert.ok(without.errors.consent);
+  const given = validateForm({ name: 'Иоланта', contact: '@iolanta_wb', comment: '', consent: true });
+  assert.equal(given.valid, true);
+});
+
 test('buildFormPayload: передаёт три поля, пустой комментарий не превращается в undefined', () => {
   assert.deepEqual(buildFormPayload({ name: 'Иоланта', contact: '@iolanta_wb' }), { name: 'Иоланта', contact: '@iolanta_wb', comment: '' });
 });

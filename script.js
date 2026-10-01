@@ -6,6 +6,9 @@ function validateForm(fields) {
   if (!fields.contact || !fields.contact.trim()) {
     errors.contact = 'Укажите телефон или Telegram';
   }
+  if (fields.consent === false) {
+    errors.consent = 'Нужно согласие на обработку данных';
+  }
   return { valid: Object.keys(errors).length === 0, errors };
 }
 
@@ -56,7 +59,8 @@ if (typeof document !== 'undefined') {
       const fields = {
         name: form.elements.name.value,
         contact: form.elements.contact.value,
-        comment: form.elements.comment.value
+        comment: form.elements.comment.value,
+        consent: form.elements.consent.checked
       };
 
       form.querySelectorAll('.field-error').forEach((el) => {

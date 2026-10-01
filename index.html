@@ -65,7 +65,7 @@
   <section id="about" class="section">
     <div class="section__inner">
       <h2>Обо мне</h2>
-      <p>Продаю на Wildberries несколько лет и веду собственный магазин. Этот аудит — прямое применение того же расчёта, которым я пользуюсь для своих товаров: разбор реальной маржи и участия в акциях, без общих советов.</p>
+      <p>Меня зовут Иоланта Федулаева. Более трёх лет я продаю на Wildberries: <a href="https://www.wildberries.ru/seller/472138" target="_blank" rel="noopener">работаю с сезонными товарами</a>. Этот аудит — прямое применение того же расчёта, которым я пользуюсь для своих товаров: разбор реальной маржи и участия в акциях, без общих советов.</p>
     </div>
   </section>
 
@@ -82,7 +82,7 @@
       </div>
       <div class="faq__item">
         <h3>Что с конфиденциальностью данных?</h3>
-        <p>Данные используются только для расчёта и не передаются третьим лицам.</p>
+        <p>Данные магазина, которые вы пришлёте для аудита, используются только для расчёта и не передаются третьим лицам. Заявка из формы попадает только ко мне на почту: она проходит через сервис приёма форм Formspree и нигде больше не публикуется.</p>
       </div>
       <div class="faq__item">
         <h3>В каком виде я получу результат?</h3>
@@ -106,12 +106,20 @@
         </div>
         <div class="field">
           <label for="contact">Телефон или Telegram</label>
-          <input type="text" name="contact" id="contact" autocomplete="tel" aria-describedby="contact-error">
+          <input type="text" name="contact" id="contact" aria-describedby="contact-hint contact-error">
+          <span class="field-hint" id="contact-hint">Telegram указывайте в виде @имя. Найти его можно в Telegram: Настройки → Имя пользователя. Если его нет, оставьте номер телефона.</span>
           <span class="field-error" id="contact-error" data-error-for="contact" aria-live="polite"></span>
         </div>
         <div class="field">
           <label for="comment">Комментарий (необязательно)</label>
           <textarea name="comment" id="comment"></textarea>
+        </div>
+        <div class="field field--consent">
+          <label class="consent">
+            <input type="checkbox" name="consent" id="consent" aria-describedby="consent-error">
+            <span>Даю согласие на обработку имени и контакта, чтобы вы могли ответить на заявку</span>
+          </label>
+          <span class="field-error" id="consent-error" data-error-for="consent" aria-live="polite"></span>
         </div>
         <button type="submit" class="button button--primary">Отправить заявку</button>
       </form>
