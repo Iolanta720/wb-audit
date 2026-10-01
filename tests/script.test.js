@@ -1,6 +1,21 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { validateForm, buildMailtoEmail, buildFallbackMessage } = require('../script.js');
+const { validateForm, buildMailtoEmail, buildFallbackMessage, buildFormPayload, buildSuccessMessage, buildSendErrorMessage } = require('../script.js');
+
+test('buildFormPayload: передаёт три поля, пустой комментарий не превращается в undefined', () => {
+  assert.deepEqual(buildFormPayload({ name: 'Иоланта', contact: '@iolanta_wb' }), { name: 'Иоланта', contact: '@iolanta_wb', comment: '' });
+});
+
+test('buildSuccessMessage: сообщает, что заявка отправлена', () => {
+  assert.match(buildSuccessMessage(), /отправлена/);
+});
+
+test('buildSendErrorMessage: при сбое показывает email и данные заявки, чтобы их не потерять', () => {
+  const message = buildSendErrorMessage({ name: 'Иоланта', contact: '@iolanta_wb', comment: 'Ассортимент 40 SKU' });
+  assert.match(message, /aminaexport1@gmail\.com/);
+  assert.match(message, /@iolanta_wb/);
+  assert.match(message, /Ассортимент 40 SKU/);
+});
 
 test('validateForm: пустые обязательные поля дают ошибки по каждому', () => {
   const result = validateForm({ name: '   ', contact: '', comment: '' });

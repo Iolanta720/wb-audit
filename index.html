@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Аудит юнит-экономики для продавца Wildberries</title>
+  <meta name="description" content="Аудит юнит-экономики для продавцов Wildberries: реальная маржа по товарам, разбор участия в акциях, письменный отчёт с цифрами.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Аудит юнит-экономики для продавца Wildberries">
+  <meta property="og:description" content="Реальная маржа по товарам, разбор участия в акциях, письменный отчёт с цифрами.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b3d91'/%3E%3Ctext x='16' y='23' font-size='20' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3E%E2%82%BD%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -52,7 +57,8 @@
   <section id="pricing" class="section">
     <div class="section__inner">
       <h2>Цена</h2>
-      <p>10 000–30 000 ₽ в зависимости от размера ассортимента.</p>
+      <p>10&nbsp;000–30&nbsp;000&nbsp;₽ в зависимости от размера ассортимента.</p>
+      <a href="#form" class="button button--primary">Оставить заявку</a>
     </div>
   </section>
 
@@ -95,13 +101,13 @@
       <form id="lead-form" novalidate>
         <div class="field">
           <label for="name">Имя</label>
-          <input type="text" name="name" id="name">
-          <span class="field-error" data-error-for="name"></span>
+          <input type="text" name="name" id="name" autocomplete="name" aria-describedby="name-error">
+          <span class="field-error" id="name-error" data-error-for="name" aria-live="polite"></span>
         </div>
         <div class="field">
           <label for="contact">Телефон или Telegram</label>
-          <input type="text" name="contact" id="contact">
-          <span class="field-error" data-error-for="contact"></span>
+          <input type="text" name="contact" id="contact" autocomplete="tel" aria-describedby="contact-error">
+          <span class="field-error" id="contact-error" data-error-for="contact" aria-live="polite"></span>
         </div>
         <div class="field">
           <label for="comment">Комментарий (необязательно)</label>
@@ -109,7 +115,7 @@
         </div>
         <button type="submit" class="button button--primary">Отправить заявку</button>
       </form>
-      <pre id="form-status" class="form-status" hidden></pre>
+      <pre id="form-status" class="form-status" role="status" hidden></pre>
     </div>
   </section>
 </body>

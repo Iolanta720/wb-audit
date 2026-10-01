@@ -11,6 +11,10 @@ function validateForm(fields) {
 
 const CONTACT_EMAIL = 'aminaexport1@gmail.com';
 
+// Адрес формы из личного кабинета Formspree. Если очистить его, заявка
+// будет уходить через почтовую программу посетителя (mailto).
+const FORM_ENDPOINT = 'https://formspree.io/f/xqpajvza';
+
 function buildEmailBody(fields) {
   return `Имя: ${fields.name}\nКонтакт: ${fields.contact}\nКомментарий: ${fields.comment || ''}`;
 }
@@ -21,12 +25,24 @@ function buildMailtoEmail(fields) {
   return `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
 }
 
+function buildFormPayload(fields) {
+  return { name: fields.name, contact: fields.contact, comment: fields.comment || '' };
+}
+
+function buildSuccessMessage() {
+  return 'Спасибо! Заявка отправлена. Я свяжусь с вами по указанному контакту.';
+}
+
+function buildSendErrorMessage(fields) {
+  return `Не удалось отправить заявку. Напишите на ${CONTACT_EMAIL} и приложите текст заявки:\n\n${buildEmailBody(fields)}`;
+}
+
 function buildFallbackMessage(fields) {
-  return `Если почтовая программа не открылась, напишите на ${CONTACT_EMAIL} и приложите текст заявки:\n\n${buildEmailBody(fields)}`;
+  return `Сейчас откроется почтовая программа с готовым письмом. Если этого не произошло, отправьте текст ниже на ${CONTACT_EMAIL}:\n\n${buildEmailBody(fields)}`;
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = { validateForm, buildMailtoEmail, buildFallbackMessage };
+  module.exports = { validateForm, buildMailtoEmail, buildFallbackMessage, buildFormPayload, buildSuccessMessage, buildSendErrorMessage };
 }
 
 if (typeof document !== 'undefined') {
@@ -46,6 +62,7 @@ if (typeof document !== 'undefined') {
       form.querySelectorAll('.field-error').forEach((el) => {
         el.textContent = '';
       });
+      form.querySelectorAll('input').forEach((el) => el.removeAttribute('aria-invalid'));
 
       const result = validateForm(fields);
 
@@ -55,17 +72,43 @@ if (typeof document !== 'undefined') {
           if (errorEl) {
             errorEl.textContent = result.errors[field];
           }
+          form.elements[field].setAttribute('aria-invalid', 'true');
         });
         return;
       }
 
       const status = document.getElementById('form-status');
-      if (status) {
-        status.textContent = buildFallbackMessage(fields);
-        status.hidden = false;
+      const showStatus = (text) => {
+        if (status) {
+          status.textContent = text;
+          status.hidden = false;
+        }
+      };
+
+      if (!FORM_ENDPOINT) {
+        showStatus(buildFallbackMessage(fields));
+        window.location.href = buildMailtoEmail(fields);
+        return;
       }
 
-      window.location.href = buildMailtoEmail(fields);
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(buildFormPayload(fields))
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          form.reset();
+          showStatus(buildSuccessMessage());
+        })
+        .catch(() => {
+          showStatus(buildSendErrorMessage(fields));
+        })
+        .finally(() => {
+          button.disabled = false;
+        });
     });
   });
 }
